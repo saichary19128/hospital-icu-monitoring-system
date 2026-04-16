@@ -17,13 +17,19 @@ const Register = () => {
 
   const [otp, setOtp] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
   const handleRegister = async () => {
     try {
+      setLoading(true);
       await API.post("/auth/register", form);
       alert("OTP sent to your email 📧");
       setStep("otp");
     } catch (err) {
       alert(err.response?.data?.msg || "Error");
+    }
+    finally {
+      setLoading(false);
     }
   };
 
@@ -91,8 +97,8 @@ const Register = () => {
               <option value="admin">Admin</option>
             </select>
 
-            <button style={styles.button} onClick={handleRegister}>
-              Register
+            <button style={styles.button} onClick={handleRegister} disabled={loading}>
+              {loading ? <span className="loader"></span> : "Register"}
             </button>
 
             {/* 🔥 LOGIN LINK */}
@@ -185,6 +191,8 @@ const styles = {
     textDecoration: "none",
     fontWeight: "bold",
   },
+
+
 };
 
 export default Register;

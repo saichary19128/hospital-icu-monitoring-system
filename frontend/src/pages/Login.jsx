@@ -6,6 +6,7 @@ import loginBg from "../assets/login.jpg";
 
 const Login = () => {
   const navigate = useNavigate();
+  const [loading,setLoading]=useState(false);
 
   const [form, setForm] = useState({
     email: "",
@@ -15,6 +16,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async () => {
+    setLoading(true);
     try {
       const res = await API.post("/auth/login", form);
 
@@ -24,6 +26,8 @@ const Login = () => {
       navigate("/dashboard");
     } catch {
       alert("Invalid credentials");
+    } finally {
+      setLoading(false);
     }
   };
   useEffect(() => {
@@ -72,10 +76,9 @@ const Login = () => {
             {showPassword ? "🙈" : "👁️"}
           </span>
         </div>
-
-        <button style={styles.button} onClick={handleLogin}>
-          Login
-        </button>
+        <button style={styles.button} onClick={handleLogin} disabled={loading}>
+              {loading ? <span className="loader"></span> : "Login"}
+            </button>
 
         <p style={styles.linkText}>
           Don’t have an account?{" "}
