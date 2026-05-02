@@ -1,3 +1,5 @@
+import logo from "../assets/logo1.png";
+
 const Navbar = () => {
   const user = JSON.parse(localStorage.getItem("user"));
 
@@ -5,14 +7,14 @@ const Navbar = () => {
     <div style={styles.navbar}>
       {/* LEFT */}
       <div style={styles.left}>
-        <span style={styles.logo}>🏥</span>
-        <h2 style={styles.title}>Hospital Monitoring</h2>
+        <span style={styles.logo}><img src={logo} alt="logo" style={{ height: "50px" }} /></span>
+        <h2 style={styles.title}>Hospital ICU Monitoring</h2>
       </div>
 
       {/* RIGHT */}
       <div style={styles.right}>
         <span style={styles.user}>
-          👤 {user?.name || "User"}
+          👨‍⚕️ {user?.name || "User"}
         </span>
 
         <button
@@ -39,7 +41,7 @@ const styles = {
     alignItems: "center",
 
     // 🔥 GLASS EFFECT
-    background: "rgba(138, 143, 168, 0.7)",
+    background: "linear-gradient(180deg, #0038bb, #101720)",
     backdropFilter: "blur(12px)",
     WebkitBackdropFilter: "blur(12px)",
 
@@ -72,6 +74,7 @@ const styles = {
   },
 
   right: {
+    color: 'white',
     display: "flex",
     alignItems: "center",
     gap: "20px",

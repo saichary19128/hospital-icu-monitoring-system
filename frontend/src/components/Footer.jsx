@@ -3,15 +3,17 @@ const Footer = () => {
     <div
       style={{
         padding: "12px",
-        background: "#090808",
-        borderTop: "1px solid #ddd",
+        background: "#0e0d0d",
+        borderTop: "1px solid #6c5656",
         textAlign: "center",
         fontSize: "14px",
-        color: "#555",
+        color: "#3e3838",
       }}
     >
-      Hospital ICU Monitoring System © {new Date().getFullYear()}
-      <p> All Rights Reserved by MedDev Team.</p>
+      <div style={{ color: 'white' }}>
+        Hospital ICU Monitoring System © {new Date().getFullYear()}
+        <p> All Rights Reserved by MedDev Team.</p>
+      </div>
     </div>
   );
 };

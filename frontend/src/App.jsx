@@ -5,6 +5,7 @@ import StreamPage from "./pages/StreamPage";
 import Register from "./pages/Register";
 import OtpVerify from "./pages/OtpVerify";
 import ProtectedRoute from "./components/ProtectedRoute";
+import AddBed from "./pages/AddBed";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/verify-otp" element={<OtpVerify />} />
+        <Route path="/add-bed" element={<AddBed />} />
         <Route path="/" element={<Register />} />
         <Route
           path="/dashboard"
